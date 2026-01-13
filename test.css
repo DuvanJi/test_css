@@ -1,23 +1,43 @@
-/* Color Principal (Barra superior, botones principales) */
+/* --- VARIABLES GLOBALES (iOS y Android) --- */
 :root {
-    --ion-color-primary: #3f694b;
-    --ion-color-primary-rgb: 63, 105, 75;
-    --ion-color-primary-shade: #375c42;
-    --ion-color-primary-tint: #52785d;
+   --ion-color-primary: #3f694b !important;
+   --ion-color-primary-rgb: 63, 105, 75 !important;
+   --ion-color-primary-shade: #375c42 !important;
+   --ion-color-primary-tint: #52785d !important;
+   
+   /* Variable específica de Moodle para la barra superior */
+   --core-header-toolbar-background: #3f694b !important;
 }
 
-/* Color Secundario (Elementos destacados, enlaces) */
+/* --- ESPECÍFICO PARA ANDROID (Material Design) --- */
+/* Android a veces ignora :root si no se especifica .md */
+:root.md {
+    --ion-color-primary: #3f694b !important;
+    --core-header-toolbar-background: #3f694b !important;
+    --ion-toolbar-background: #3f694b !important;
+    --ion-tab-bar-background: #ffffff; /* Fondo blanco en pestañas */
+    --ion-tab-bar-color-selected: #3f694b !important; /* Icono activo verde */
+}
+
+/* --- ESPECÍFICO PARA iOS (Por si acaso) --- */
+:root.ios {
+    --ion-color-primary: #3f694b !important;
+    --core-header-toolbar-background: #3f694b !important;
+}
+
+/* --- FORZAR ELEMENTOS REBELDES --- */
 .ion-color-primary {
     --ion-color-base: #3f694b !important;
 }
 
-/* Forzar la barra de herramientas al color corporativo */
 ion-toolbar {
     --background: #3f694b !important;
+    background: #3f694b !important; /* Respaldo antiguo */
     color: white !important;
 }
 
-/* Botones y acentos con tu segundo color */
+/* Botones principales */
 ion-button {
-    --background: #558f67;
+    --background: #558f67 !important;
+    --color: white !important;
 }
